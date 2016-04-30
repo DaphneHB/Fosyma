@@ -33,6 +33,7 @@ public class CommunicativeWalkBehaviour extends TickerBehaviour{
 	private Carte carte;
 	private MyAgent agent;
 	private Strategy strategy;
+	private String previous_position = "";
 	
 	public CommunicativeWalkBehaviour (MyAgent myag) {
 		super((mas.abstractAgent) myag, 1000);
@@ -53,6 +54,11 @@ public class CommunicativeWalkBehaviour extends TickerBehaviour{
 	public void onTick() {
 		//Example to retrieve the current position
 		String myPosition=((mas.abstractAgent)this.myAgent).getCurrentPosition();
+		if (!myPosition.equals(previous_position)){
+			// increasing the tick counter in the map
+			this.carte.vueSuivante();
+			this.previous_position = myPosition; // saved for the next tick
+		}
 		
 		if (myPosition!=""){
 			//List of observable from the agent's current position

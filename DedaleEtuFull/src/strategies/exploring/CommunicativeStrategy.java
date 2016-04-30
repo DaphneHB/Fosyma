@@ -48,7 +48,6 @@ public class CommunicativeStrategy implements Strategy {
 	@Override
 	public String indexNextMove(String currentPosition, Carte knowledge,
 			List<Couple<String, List<Attribute>>> observations) throws ExplorationClosedException,MeetingExpectedException {
-		System.out.println("searching next move strat");
 		this.currentPos = currentPosition;
 		boolean meeting=false; // TODO
 		// si on est sur le point de commencer un conversation behaviour
@@ -65,6 +64,9 @@ public class CommunicativeStrategy implements Strategy {
 			if (b.isWaiting()){
 				moveOk = false;
 				return this.currentPos;
+			} else if (b.haveToStop()){
+				meeting=true;
+				moveOk=false;
 			}
 		}
 		// Getting the simplest way a possible next position

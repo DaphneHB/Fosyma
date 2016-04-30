@@ -71,7 +71,7 @@ public class ReceivePosition extends TickerBehaviour implements MyBehaviour {
 		// matching inform performative
 		// matching accept/ack/echo performative
 		final MessageTemplate msgTemplate = MessageTemplate.and(MessageTemplate.MatchPerformative(ACLMessage.INFORM),
-					MessageTemplate.MatchPerformative(ACLMessage.CONFIRM));
+					MessageTemplate.MatchPerformative(ACLMessage.INFORM));
 		final ACLMessage msg = this.myAgent.receive(msgTemplate);
 		System.out.println(this.myAgent.getLocalName()+" is ticking son receive. MSG = "+msg);
 
@@ -85,6 +85,7 @@ public class ReceivePosition extends TickerBehaviour implements MyBehaviour {
 				// lauching a conversation with the sender
 				//this.myAgent.addBehaviour(new ConversationBehaviour(this.myAgent,theMsg[1]));
 				System.out.println("ACK-----------> Distance OK between "+myPosition+" and "+theMsg[2]);
+				System.out.println("___________________Have to launch a conversation");
 			} // otherwise it is a simple sendPosition msg 
 			else if(!waiting){
 				System.out.println("-----------> Have to ACK");
@@ -95,10 +96,11 @@ public class ReceivePosition extends TickerBehaviour implements MyBehaviour {
 				ACLMessage msg1=new ACLMessage(7);
 				msg1.setSender(this.myAgent.getAID());
 				msg1.setContent("ACK#"+this.myAgent.getLocalName()+"#"+myPosition);
-				String receiver = theMsg[1];
+				String receiver = theMsg[0];
 				msg1.addReceiver(new AID(receiver,AID.ISLOCALNAME));
 				msg1.setPerformative(ACLMessage.CONFIRM);
 				((mas.abstractAgent)this.myAgent).sendMessage(msg1);
+				System.out.println("Sent to "+theMsg[0]+" : "+msg1);
 			} else {System.out.println("WAITING");}
 		} else {
 			block();

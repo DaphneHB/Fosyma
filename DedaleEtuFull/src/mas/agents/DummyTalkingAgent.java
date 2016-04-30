@@ -44,7 +44,6 @@ public class DummyTalkingAgent extends MyAgent{
 		//if(args.length>1 && args[1]!=null){
 		//	this.getDataBack(args[1]);
 		//}
-		System.out.println("Env ok");
 		// recuperation du service de l'agent
 		if (args.length>1 && args[1]!= null ) { //& args[2] instanceof String){
 			if (args[1] instanceof String){
@@ -53,7 +52,6 @@ public class DummyTalkingAgent extends MyAgent{
 				System.err.println("Le service demandé n'existe pas. Placement au service par défaut : "+this.monService);
 			}
 		} // sinon valeur par defaut
-		System.out.println("Service ok");
 		
 		// connaissances initiales de l'agent
 		if (this.data.isEmpty()){
@@ -66,7 +64,6 @@ public class DummyTalkingAgent extends MyAgent{
 		else {
 			System.out.println("Donnees de "+this.getLocalName()+" : "+this.data);
 		}
-		System.out.println("Data ok");	
 		InitBehaviour init = new InitBehaviour(this);
 		this.addBehaviour(init);
 		System.out.println("The agent "+this.getLocalName()+ " is started (service : "+this.monService+")");

@@ -20,7 +20,6 @@ public class SendPosition extends TickerBehaviour implements MyBehaviour {
 	public SendPosition(final Agent agent, List<String> data){
 		super(agent,1000);
 		this.others = data;
-		System.out.println("others ==="+this.others);
 	}
 
 	@Override
