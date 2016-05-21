@@ -26,14 +26,16 @@ public class InitBehaviour extends SimpleBehaviour{
 		super((mas.abstractAgent)agent);
 		this.agent = agent;
 		// on s'enregistre sur le DF dans tous les cas
-		this.agent.enregDF();
+		this.agent.enregAgentDF();
+		this.agent.enregServiceDF();
 	}
 
 	public InitBehaviour(MyAgent agent, List<MyBehaviour> behavs) {
 		super((mas.abstractAgent)agent);
 		this.agent = agent;
 		// on s'enregistre sur le DF dans tous les cas
-		this.agent.enregDF();
+		this.agent.enregAgentDF();
+		this.agent.enregServiceDF();
 	}
 
 	@Override
@@ -44,7 +46,8 @@ public class InitBehaviour extends SimpleBehaviour{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.agent.interDF(this.agent.getService());
+		this.agent.everyAgents();
+		//this.agent.interDF(this.agent.getService());
 		this.chooseBehaviour();
 		//Add the behaviours
 		for(Behaviour b : this.behvs){

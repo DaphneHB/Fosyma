@@ -3,12 +3,12 @@ package mas.agents;
 import Objects.Service;
 
 
-public class DummyExploAgent extends MyAgent{
+public class DummyFightAgent extends MyAgent{
 
 	private static final long serialVersionUID = 1L;
 	
-	public DummyExploAgent(){
+	public DummyFightAgent(){
 		super();
-		this.monService = Service.explorer;
+		this.monService = Service.combattant;
 	}
 }

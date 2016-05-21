@@ -22,7 +22,7 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/DedaleEtuFull/lib/graphStream/gs-ui-1.3/gs-ui-1.3-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/users/nfs/Etu4/3200234/FAC/M1/FOSYMA/Dedale.jar"/>
 	<classpathentry kind="lib" path="lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="lib/Dedale.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
